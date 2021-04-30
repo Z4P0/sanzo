@@ -3,14 +3,22 @@ const domPalette = document.querySelector('#palette');
 let colors = [];
 let map = [];
 let palettes = [];
-let randomIndex = 0;
 
+
+function clearPalette() {
+  while (domPalette.firstChild) {
+    domPalette.removeChild(domPalette.firstChild);
+  }
+}
 
 // read the colors from a palette
 function paletteColors(palette) {
   console.log(palette);
   // add divs to dom
-  // clear dom?
+  // clear DOM
+  clearPalette()
+
+  // create new divs
   let frag = document.createDocumentFragment();
   for (var i = 0; i < palette.length; i++) {
     console.log(palette[i]);
@@ -18,10 +26,44 @@ function paletteColors(palette) {
     let div = document.createElement('div');
     div.setAttribute('class', 'swatch');
     div.setAttribute('style', `background-color: ${colors[palette[i]].hex}`)
+
+    // add details, definition list
+    let dl = document.createElement('dl');
+
+    // color name
+    let dtColorName = document.createElement('dt');
+    dtColorName.appendChild(document.createTextNode('Name'));
+    dl.appendChild(dtColorName);
+    let ddColorName = document.createElement('dd');
+    ddColorName.appendChild(document.createTextNode(colors[palette[i]].hex));
+    dl.appendChild(ddColorName);
+
+    // hex code
+    let dt = document.createElement('dt');
+    dt.appendChild(document.createTextNode('Hex Code'));
+    dl.appendChild(dt);
+    let dd = document.createElement('dd');
+    dd.appendChild(document.createTextNode(colors[palette[i]].hex));
+    dl.appendChild(dd);
+
+    // add dl to div
+    div.appendChild(dl);
+
+    // add div to frag
     frag.appendChild(div);
   }
+
+  // add to DOM
   domPalette.appendChild(frag);
 }
+
+function randomPalette() {
+  let randomIndex = Math.floor(Math.random() * palettes.length);
+  console.log(randomIndex);
+  // show palette colors
+  paletteColors(palettes[randomIndex]);
+}
+
 
 fetch('node_modules/dictionary-of-colour-combinations/colors.json')
   // turn into json
@@ -44,11 +86,7 @@ fetch('node_modules/dictionary-of-colour-combinations/colors.json')
       .map(e => e[1]);
 
     // random palette
-    randomIndex = Math.floor(Math.random() * palettes.length);
-    console.log(randomIndex);
-    // show palette colors
-    paletteColors(palettes[randomIndex]);
-
+    randomPalette();
   });
 
 
