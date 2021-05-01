@@ -1,8 +1,10 @@
 const domPalette = document.querySelector('#palette');
+const domPaletteIndex = document.querySelector('#palette-index');
 
 let colors = [];
 let map = [];
 let palettes = [];
+let currentIndex = 0;
 
 
 function clearPalette() {
@@ -12,17 +14,18 @@ function clearPalette() {
 }
 
 // read the colors from a palette
-function paletteColors(palette) {
-  console.log(palette);
-  // add divs to dom
+function paletteColors(paletteIndex) {
+  let palette = palettes[paletteIndex];
+
+  // show what index
+  domPaletteIndex.textContent = `#${paletteIndex}`;
+
   // clear DOM
   clearPalette()
 
   // create new divs
   let frag = document.createDocumentFragment();
   for (var i = 0; i < palette.length; i++) {
-    console.log(palette[i]);
-    console.log(colors[palette[i]]);
     let div = document.createElement('div');
     div.setAttribute('class', 'swatch');
     div.setAttribute('style', `background-color: ${colors[palette[i]].hex}`)
@@ -35,7 +38,7 @@ function paletteColors(palette) {
     dtColorName.appendChild(document.createTextNode('Name'));
     dl.appendChild(dtColorName);
     let ddColorName = document.createElement('dd');
-    ddColorName.appendChild(document.createTextNode(colors[palette[i]].hex));
+    ddColorName.appendChild(document.createTextNode(colors[palette[i]].name));
     dl.appendChild(ddColorName);
 
     // hex code
@@ -59,13 +62,16 @@ function paletteColors(palette) {
 
 function randomPalette() {
   let randomIndex = Math.floor(Math.random() * palettes.length);
-  console.log(randomIndex);
+
+  // update system
+  currentIndex = randomIndex;
+
   // show palette colors
-  paletteColors(palettes[randomIndex]);
+  paletteColors(randomIndex);
 }
 
 
-fetch('node_modules/dictionary-of-colour-combinations/colors.json')
+fetch('colors.json')
   // turn into json
   .then(response => response.json())
   .then(data => {
@@ -88,10 +94,3 @@ fetch('node_modules/dictionary-of-colour-combinations/colors.json')
     // random palette
     randomPalette();
   });
-
-
-
-// // console.log(palettes.length); // 348
-
-// // ==================================================
-
