@@ -71,7 +71,7 @@ function randomPalette() {
 }
 
 
-fetch('colors.json')
+fetch('scripts/colors.json')
   // turn into json
   .then(response => response.json())
   .then(data => {
