@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "dictionary-of-colour-combinations": "^1.0.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
   }
 }
