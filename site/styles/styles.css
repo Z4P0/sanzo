@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  line-height: 1.616;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+.container {
+  text-align: center;
+}
+.palette {
+  display: flex;
+}
+.swatch {
+  flex: 1;
+  height: 50vh;
+}
+.swatch dl {
+  text-align: left;
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+.swatch dt {
+  font-weight: bold;
+}
+.swatch:hover dl {
+  opacity: 1;
+}
