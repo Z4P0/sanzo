@@ -1,0 +1,18 @@
+extends /page.pug
+
+block container
+  h1 Sanzo
+  p Palette viewer
+
+  ul
+    li
+      a(href="random") Random Palette
+    li
+      a(href="colophon") Colophon
+
+  hr
+
+  p#palette-index #---
+  #palette.palette
+    //- .swatch-es go here
+  button(type="button", onclick="randomPalette();") Random
