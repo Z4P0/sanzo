@@ -1,0 +1,27 @@
+doctype html
+html(lang="en").no-js
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    block title
+      title Page Title
+    //- styles
+    link(rel="preload", href="/styles/styles.css", as="style")
+    <link rel="stylesheet" href="/styles/styles.css">
+    //- //- favicon
+    //- meta(name="theme-color", content="#ffffff")
+    //- link(rel="icon", href="/assets/favicon.svg")
+    //- link(rel="mask-icon", href="/assets/favicon.svg", color="#363636")
+    //- link(rel="apple-touch-icon", href="/assets/apple-touch-icon.png")
+    block styles
+
+  body
+
+    a(href="#main").show-for-sr Skip to main content
+
+    .container
+      block container
+        h1 Page Title
+
+    block scripts
+      //- script(src="/assets/js/hero-header.js")
