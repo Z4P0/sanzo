@@ -1,18 +1,26 @@
 extends /page.pug
 
+block title
+  title Sanzo
+
 block container
   h1 Sanzo
-  p Palette viewer
+  h2 A Dictionary of Colour Combinations
 
   ul
     li
-      a(href="random") Random Palette
+      a(href="/") Browse
     li
-      a(href="colophon") Colophon
+      a(href="/random") Random Palette
+    li
+      a(href="/colophon") Colophon
 
   hr
 
-  p#palette-index #---
-  #palette.palette
-    //- .swatch-es go here
-  button(type="button", onclick="randomPalette();") Random
+
+  h2 Colors
+  p list of color combinations goes here
+  //- p#palette-index #---
+  //- #palette.palette
+  //-   //- .swatch-es go here
+  //- button(type="button", onclick="randomPalette();") Random
