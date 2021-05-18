@@ -1,0 +1,24 @@
+---
+layout: page.njk
+---
+
+<h2>A Dictionary of Colour Combinations</h2>
+
+<ol>
+  {%- for palette in palettes %}
+    <li>
+      <div class="palette" >
+        {%- for color in palette %}
+          <div class="swatch" style="background: {{ color.hex }}">
+            <dl>
+              <dt>Name</dt>
+              <dd>{{ color.name }}</dd>
+              <dt>Hex Code</dt>
+              <dd>{{ color.hex }}</dd>
+            </dl>
+          </div>
+        {% endfor -%}
+      </div>
+    </li>
+  {% endfor -%}
+</ol>

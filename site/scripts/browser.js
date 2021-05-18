@@ -18,7 +18,7 @@ function paletteColors(paletteIndex) {
   let palette = palettes[paletteIndex];
 
   // show what index
-  domPaletteIndex.textContent = `#${paletteIndex}`;
+  domPaletteIndex.textContent = `#${paletteIndex+1}`;
 
   // clear DOM
   clearPalette()
