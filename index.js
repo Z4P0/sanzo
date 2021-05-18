@@ -1,4 +1,6 @@
 const colors = require('dictionary-of-colour-combinations');
+const fs = require('fs');
+
 // var nice_colors = require('nice-color-palettes/1000');
 // console.log(nice_colors[0]);
 
@@ -16,19 +18,33 @@ const palettes = [ ...map.entries() ]
 
 // console.log(palettes.length); // 348
 
-// ==================================================
-
-// read the colors from a palette
-function paletteColors(palette) {
-  console.log(palette);
-  for (var i = 0; i < palette.length; i++) {
-    console.log(palette[i]);
-    console.log(colors[palette[i]]);
+// idk wtf is going on in the code above
+// so we'll just loop again!
+for (var i = 0; i < palettes.length; i++) {
+  let palette = palettes[i];
+  for (var j = 0; j < palette.length; j++) {
+    palette[j] = {
+      name: colors[palette[j]].name,
+      hex: colors[palette[j]].hex
+    }
   }
 }
 
-// random palette
-let randomIndex = Math.floor(Math.random() * palettes.length);
+fs.writeFileSync('_data/palettes.json', JSON.stringify(palettes));
 
-// show palette colors
-paletteColors(palettes[randomIndex]);
+// ==================================================
+
+// // read the colors from a palette
+// function paletteColors(palette) {
+//   console.log(palette);
+//   for (var i = 0; i < palette.length; i++) {
+//     console.log(palette[i]);
+//     console.log(colors[palette[i]]);
+//   }
+// }
+
+// // random palette
+// let randomIndex = Math.floor(Math.random() * palettes.length);
+
+// // show palette colors
+// paletteColors(palettes[randomIndex]);
