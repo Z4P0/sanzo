@@ -2,14 +2,16 @@
 layout: page.njk
 ---
 
-<h2>A Dictionary of Colour Combinations</h2>
+<h2>Browse</h2>
 
-<ol>
+<ol class="color-list">
   {%- for palette in palettes %}
     <li>
       <div class="palette" >
         {%- for color in palette %}
-          <div class="swatch" style="background: {{ color.hex }}">
+          <div class="palette__color">
+            <div class="swatch" style="background: {{ color.hex }}">
+            </div>
             <dl>
               <dt>Name</dt>
               <dd>{{ color.name }}</dd>

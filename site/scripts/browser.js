@@ -26,6 +26,9 @@ function paletteColors(paletteIndex) {
   // create new divs
   let frag = document.createDocumentFragment();
   for (var i = 0; i < palette.length; i++) {
+    let divContainer = document.createElement('div');
+    divContainer.setAttribute('class', 'palette__color');
+
     let div = document.createElement('div');
     div.setAttribute('class', 'swatch');
     div.setAttribute('style', `background-color: ${colors[palette[i]].hex}`)
@@ -50,10 +53,11 @@ function paletteColors(paletteIndex) {
     dl.appendChild(dd);
 
     // add dl to div
-    div.appendChild(dl);
+    divContainer.appendChild(div);
+    divContainer.appendChild(dl);
 
     // add div to frag
-    frag.appendChild(div);
+    frag.appendChild(divContainer);
   }
 
   // add to DOM

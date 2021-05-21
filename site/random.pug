@@ -4,21 +4,9 @@ block title
   title Random
 
 block container
-  h1 Sanzo
-  //- h2 A Dictionary of Colour Combinations
-
-  ul
-    li
-      a(href="/") Browse
-    li
-      a(href="/random") Random Palette
-    li
-      a(href="/colophon") Colophon
-
-  hr
-
   h2 Random Palette
-  button(type="button", onclick="randomPalette();") Random
+  p
+    button(type="button", onclick="randomPalette();") Random
   p#palette-index #---
   #palette.palette
     //- .swatch-es go here

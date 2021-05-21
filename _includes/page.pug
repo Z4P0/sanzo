@@ -20,8 +20,27 @@ html(lang="en").no-js
     //- a(href="#main").show-for-sr Skip to main content
 
     .container
-      block container
-        h1 Page Title
+
+      header.site-header
+        h1.site-title
+          a(href="/") Sanzo
+
+        p A Dictionary of Color Combinations
+
+        //- nav
+          h2.show-for-sr Site Navigation
+        ul.site-menu
+          li
+            a(href="/") Browse
+          li
+            a(href="/random") Random
+          li
+            a(href="/colophon") Colophon
+
+
+      main
+        block container
+          h2 Page Title
 
     block scripts
       //- script(src="/assets/js/hero-header.js")
