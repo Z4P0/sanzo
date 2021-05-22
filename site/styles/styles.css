@@ -15,6 +15,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5em;
 }
 
+button {
+  cursor: pointer;
+  font: inherit;
+  font-size: .875em;
+  margin: 0 0 .5em;
+  padding: .125em 1em;
+}
+
 dt {
   font-size: .875em;
   font-weight: bold;
