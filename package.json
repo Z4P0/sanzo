@@ -1,6 +1,6 @@
 {
   "name": "sanzo",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "A web implementation of Sanzo Wada's color work",
   "main": "index.js",
   "scripts": {
